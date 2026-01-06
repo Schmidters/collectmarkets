@@ -16,12 +16,14 @@ matplotlib.use('Agg')  # Non-interactive backend
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Configuration
-WALLET_FILE = "/root/mcollect/wallets.txt"
-OUTPUT_ROOT = "/root/mcollect/data"
-PLOTS_DIR = "/root/mcollect/plots"
+# Configuration - Updated for Windows
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WALLET_FILE = os.path.join(SCRIPT_DIR, "wallets.txt")
+OUTPUT_ROOT = os.path.join(SCRIPT_DIR, "data")
+PLOTS_DIR = os.path.join(SCRIPT_DIR, "plots")
 
-# Ensure plots directory exists
+# Ensure directories exist
+os.makedirs(OUTPUT_ROOT, exist_ok=True)
 os.makedirs(PLOTS_DIR, exist_ok=True)
 
 # Default wallets (used if wallets.txt doesn't exist)
